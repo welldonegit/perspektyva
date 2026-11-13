@@ -1,0 +1,91 @@
+/* pricing.css — «вартість та умови»: 3 картки, перша темна. */
+
+.pricing__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-16);
+}
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-48);
+  padding: var(--space-32);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+}
+.price-card--dark { background: var(--color-ink); }
+
+.price-card__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.price-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--size-avatar);
+  height: var(--size-avatar);
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+.price-card__icon--brand {
+  background: var(--color-brand);
+  color: var(--color-ink);
+}
+
+.price-card__eyebrow {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+}
+.price-card__eyebrow--light { color: var(--color-border); }
+
+.price-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+.price-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.price-card__title { color: var(--color-ink); }
+.price-card__title--light { color: var(--color-white); }
+
+.price-card__desc {
+  max-width: 480px;
+  color: var(--color-text-muted);
+}
+.price-card__desc--light { color: var(--color-border); }
+
+@media (min-width: 768px) {
+  .pricing__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-24);
+  }
+  .price-card { min-height: 320px; }
+  /* На планшеті (2 колонки) перша картка на всю ширину. */
+  .price-card--dark { grid-column: 1 / -1; }
+}
+
+@media (min-width: 1200px) {
+  .pricing__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .price-card--dark { grid-column: auto; }
+}
+
+@media (max-width: 767px) {
+  .pricing__inner { gap: var(--space-32); }
+  .price-card { padding: var(--space-24); }
+}

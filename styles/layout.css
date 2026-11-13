@@ -1,0 +1,55 @@
+/* ============================================================================
+   layout.css — спільні примітиви розкладки. Відступи між елементами — через
+   gap у flex/grid (щоб плагін зібрав Auto Layout), а не margin сусідів.
+   ============================================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-32);
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-inline: var(--space-16);
+  }
+}
+
+/* Світла секція за замовчуванням; темні секції перевизначають фон у себе. */
+.section {
+  background: var(--color-white);
+}
+
+/* Вертикальний ритм секцій (96 / 56 з брейкпоінтом). */
+.section--pad {
+  padding-block: var(--space-96);
+}
+
+.section--pad-top {
+  padding-top: var(--space-96);
+}
+
+.section--pad-top {
+  padding-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .section--pad {
+    padding-block: var(--space-56);
+  }
+
+  .section--pad-top {
+    padding-top: var(--space-56);
+  }
+}
+
+/* Розміри інлайнових іконок — єдина шкала 16/20/24/32/40/48.
+   svg з viewBox масштабується до цих боксів (replaces атрибути width/height). */
+.icon { flex: none; }
+.icon--16 { width: var(--icon-16); height: var(--icon-16); }
+.icon--20 { width: var(--icon-20); height: var(--icon-20); }
+.icon--24 { width: var(--icon-24); height: var(--icon-24); }
+.icon--32 { width: var(--icon-32); height: var(--icon-32); }
+.icon--40 { width: var(--icon-40); height: var(--icon-40); }
+.icon--48 { width: var(--icon-48); height: var(--icon-48); }

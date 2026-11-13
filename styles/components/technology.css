@@ -1,0 +1,128 @@
+/* technology.css — «як облаштовано будинок»: фото-тайл + картки-рішення. */
+
+.technology__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.technology__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-16) var(--space-24);
+}
+.technology__lead {
+  max-width: 416px;
+  color: var(--color-text-muted);
+}
+
+.technology__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-16);
+}
+
+.technology__photo {
+  position: relative;
+  min-height: 320px;
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  background: var(--color-border);
+}
+.technology__photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+  padding: var(--space-32);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+}
+
+.tech-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--size-avatar);
+  height: var(--size-avatar);
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.tech-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.tech-card__title { color: var(--color-ink); }
+.tech-card__text { color: var(--color-text-muted); }
+
+.tech-note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin-top: var(--space-8);
+  padding: var(--space-16);
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+.tech-note__title { color: var(--color-ink); }
+
+.tech-note__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8) var(--space-16);
+}
+.tech-note__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.tech-note__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  color: var(--color-ink);
+}
+.tech-note__list .tech-note__item { color: var(--color-text-muted); }
+
+.tech-note__dot {
+  flex: none;
+  width: var(--space-4);
+  height: var(--space-4);
+  margin-top: var(--space-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+}
+.tech-note__strong {
+  color: var(--color-ink);
+  font-weight: var(--weight-semibold);
+}
+
+@media (min-width: 768px) {
+  .technology__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-24);
+  }
+}
+
+@media (min-width: 1200px) {
+  .technology__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .technology__inner { gap: var(--space-32); }
+  .tech-card { padding: var(--space-24); }
+}

@@ -1,0 +1,146 @@
+/* ============================================================================
+   tokens.css — единственный источник числовых значений дизайн-системы.
+   В компонентных стилях — только var(), никаких магических чисел.
+   Значения снято с рендера Claude Design (renderVals) и сведено на шкалы.
+   Цвета ink/жовтий зняті під сайт-приймач perspektyva.com.ua.
+   ============================================================================ */
+
+:root {
+  /* --- Колір ------------------------------------------------------------- */
+  --color-ink: #23262D;               /* основний текст / темний фон */
+  --color-ink-rgb: 35 38 45;          /* той самий ink для rgba()-скримів */
+  --color-ink-raised: #3A3E48;        /* темна межа / hover на темному */
+  --color-white: #FFFFFF;
+  --color-white-rgb: 255 255 255;
+
+  --color-text: #23262D;
+  --color-text-muted: #5C616C;        /* вторинний текст */
+  --color-text-subtle: #9DA2AC;       /* приглушений текст */
+
+  --color-border: #DCDFE4;            /* світла межа / фон disabled */
+  --color-surface: #F3F4F6;           /* світла підкладка карток */
+
+  --color-brand: #FFC000;             /* бренд-жовтий (кнопки, акцент) */
+  --color-brand-rgb: 255 192 0;
+
+  --color-fact-bg: #FFEFBC;           /* фон карток «ключові цифри» */
+  --color-fact-border: #FBE08A;
+
+  --color-success: #12B76A;           /* зелена крапка-статус */
+  --color-error: #B42318;             /* помилка */
+  --color-map-bg: #E9E6DF;            /* підкладка карти */
+
+  /* --- Шкала відступів і розмірів (4 / 8 / 16 / 32 / 64) ----------------- */
+  --space-2: 2px;                     /* хайрлайни / мікро */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;                   /* кратне 8; ритм секцій на моб. (поза головними кроками шкали) */
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-128: 128px;
+
+  /* Виняток поза шкалою: вертикальний padding карток «цифри».
+     Залишено навмисно — округлення до 16/24 зсунуло б контент на 4px. */
+  --fact-pad-y: 28px;                 /* desktop */
+  --fact-pad-y-mobile: 20px;
+
+  /* --- Контейнер --------------------------------------------------------- */
+  --container-max: 1344px;
+
+  /* --- Радіуси: 2 / 4 / 8 / 12 / 16 / 24 / pill -------------------------- */
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-24: 24px;
+  --radius-pill: 9999px;
+
+  /* --- Товщина межі: 1 / 2 ---------------------------------------------- */
+  --border-1: 1px;
+  --border-2: 2px;
+
+  /* --- Розміри іконок: 16 / 20 / 24 / 32 / 40 / 48 ---------------------- */
+  --icon-16: 16px;
+  --icon-20: 20px;
+  --icon-24: 24px;
+  --icon-32: 32px;
+  --icon-40: 40px;
+  --icon-48: 48px;                    /* фічеві іконки «переваги» */
+
+  /* --- Висоти контролів: 24 / 32 / 40 / 48 / 52 / 56 -------------------- */
+  --control-h-input: 48px;            /* інпути, селекти, степери */
+  --control-h-button: 56px;           /* текстові CTA-кнопки (desktop; 48 на моб.) */
+  --control-h-nav: 52px;              /* круглі nav-стрілки, кнопка «нагору» */
+  --control-h-icon: 44px;             /* іконо-кнопки (тап-таргет, a11y-виняток) */
+  --size-avatar: 56px;                /* круглі іконо-плашки 56×56 (декор) */
+
+  /* --- Тіні -------------------------------------------------------------- */
+  --shadow-card: 0 8px 32px rgba(var(--color-ink-rgb) / 0.16);
+  --shadow-badge: 0 4px 16px rgba(var(--color-ink-rgb) / 0.12);
+  --shadow-pin: 0 6px 16px rgba(var(--color-ink-rgb) / 0.32);
+
+  /* --- Фокус-кільце ------------------------------------------------------ */
+  --focus-ring: 0 0 0 2px var(--color-white), 0 0 0 4px var(--color-ink);
+  --focus-ring-inverse: 0 0 0 2px var(--color-ink), 0 0 0 4px var(--color-white);
+  --focus-ring-brand: 0 0 0 2px var(--color-brand);
+
+  /* --- Рух -------------------------------------------------------------- */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --duration: 200ms;
+
+  /* ======================================================================
+     Типографіка — розміри лише зі шкали 12 14 16 18 20 24 28 32 40 48.
+     Міжрядковий — на 4px-сітці. Вага — числом. Дроб лише в letter-spacing.
+     ====================================================================== */
+  --font-family: "Inter", sans-serif;
+
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tight: -0.02em;          /* h1, цифри */
+  --tracking-snug: -0.01em;           /* h2, h3 */
+  --tracking-wide: 0.01em;            /* логотип */
+
+  /* H1 — hero. Desktop 48/56, mobile 32/40 (медіазапит у typography.css) */
+  --text-h1-size: 48px;
+  --text-h1-lh: 56px;
+  /* H2 — секційний. 40/48 */
+  --text-h2-size: 40px;
+  --text-h2-lh: 48px;
+  /* H3 — заголовок картки. 28/36 */
+  --text-h3-size: 28px;
+  --text-h3-lh: 36px;
+  /* Stat — великі цифри. 40/48/700 */
+  --text-stat-size: 40px;
+  --text-stat-lh: 48px;
+  /* Body large — 18/28 */
+  --text-body-lg-size: 18px;
+  --text-body-lg-lh: 28px;
+  /* Body — 16/24 */
+  --text-body-size: 16px;
+  --text-body-lh: 24px;
+  /* Body small / caption — 14/20 */
+  --text-sm-size: 14px;
+  --text-sm-lh: 20px;
+  /* Micro — 12/16 (резерв шкали, стайлгайд) */
+  --text-xs-size: 12px;
+  --text-xs-lh: 16px;
+  /* Label — 16/24/600 (підписи форм, nav, лічильники) */
+  --text-label-size: 16px;
+  --text-label-lh: 24px;
+  /* Lead — 20/28 (телефон, пункти меню, футер-лінки) */
+  --text-lead-size: 20px;
+  --text-lead-lh: 28px;
+  /* Subhead — 18/28 (меню моб, success, таб) */
+  --text-subhead-size: 18px;
+  --text-subhead-lh: 28px;
+}

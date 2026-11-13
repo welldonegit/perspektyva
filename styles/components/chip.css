@@ -1,0 +1,31 @@
+/* chip.css — тег-чип зі статус-крапкою (бренд-мітки у секції технологій). */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-12);
+  border: var(--border-1) solid var(--color-border);
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-lh);
+  white-space: nowrap;
+}
+.chip--self-start { align-self: flex-start; }
+
+.chip__dot {
+  flex: none;
+  width: var(--space-8);
+  height: var(--space-8);
+  border-radius: var(--radius-pill);
+}
+.chip__dot--success { background: var(--color-success); }
+.chip__dot--warn { background: var(--color-brand); }

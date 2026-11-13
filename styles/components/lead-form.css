@@ -1,0 +1,222 @@
+/* lead-form.css — секція заявки: фонове фото + біла картка (фото + форма).
+   Містить спільні примітиви форми: .field / .input / .select / .stepper.
+   Паралакс фону прибрано; радіус картки уніфіковано на 24 (було 32 на desktop). */
+
+.lead {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ink);
+}
+.lead__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.lead__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--color-ink-rgb) / 0.48);
+  pointer-events: none;
+}
+.lead__inner { position: relative; }
+
+.lead__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-24);
+  padding: var(--space-16);
+  border-radius: var(--radius-24);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+
+.lead__photo {
+  position: relative;
+  min-height: 240px;
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  background: var(--color-border);
+}
+.lead__photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lead__form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  padding: var(--space-8) var(--space-8) var(--space-16);
+}
+.lead__heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.lead__sub { color: var(--color-text-muted); }
+
+/* --- Форма --- */
+.lead-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-16);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.field--full { grid-column: 1 / -1; }
+.field__label { color: var(--color-ink); }
+
+.lead-form__submit { grid-column: 1 / -1; }
+
+/* Повідомлення про помилку поля (спільне для форм і попапів). */
+.field__error { color: var(--color-error); }
+.field__error[hidden] { display: none; }
+
+.input {
+  width: 100%;
+  height: var(--control-h-input);
+  padding-inline: var(--space-16);
+  border: var(--border-1) solid var(--color-border);
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  outline: none;
+  transition: border-color var(--duration) var(--ease);
+}
+.input:hover { border-color: var(--color-text-muted); }
+.input:focus,
+.input.input--focus {
+  border-color: var(--color-ink);
+  box-shadow: var(--focus-ring);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 64px;
+  padding: var(--space-8) var(--space-16);
+  border: var(--border-1) solid var(--color-border);
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--duration) var(--ease);
+}
+.textarea:hover { border-color: var(--color-text-muted); }
+.textarea:focus {
+  border-color: var(--color-ink);
+  box-shadow: var(--focus-ring);
+}
+
+/* --- Чекбокс згоди --- */
+.checkbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  cursor: pointer;
+}
+.checkbox__box {
+  flex: none;
+  width: var(--icon-20);
+  height: var(--icon-20);
+  margin: 0;
+  accent-color: var(--color-ink);
+  cursor: pointer;
+}
+.checkbox__text { color: var(--color-text-muted); }
+.checkbox__text a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: var(--space-4);
+}
+
+/* --- Select --- */
+.select { position: relative; }
+.select__control {
+  padding-right: var(--space-48);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.select__chevron {
+  position: absolute;
+  top: 14px;
+  right: var(--space-16);
+  pointer-events: none;
+  color: var(--color-ink);
+}
+
+/* --- Степер кількості --- */
+.stepper {
+  display: flex;
+  gap: var(--space-8);
+}
+.stepper__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--control-h-input);
+  height: var(--control-h-input);
+  padding: 0;
+  border: var(--border-1) solid var(--color-border);
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+  color: var(--color-ink);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--duration) var(--ease);
+}
+.stepper__btn:hover { border-color: var(--color-text-muted); }
+.stepper__btn:focus-visible { box-shadow: var(--focus-ring); }
+.stepper__value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  height: var(--control-h-input);
+  border: var(--border-1) solid var(--color-border);
+  border-radius: var(--radius-8);
+  color: var(--color-ink);
+}
+
+@media (min-width: 768px) {
+  .lead__card { padding: var(--space-16); }
+  .lead__photo { min-height: 360px; }
+  .lead__form-wrap { padding: var(--space-8) var(--space-16) var(--space-16); }
+  .lead-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1200px) {
+  .lead__card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-40);
+    padding: var(--space-24);
+  }
+  .lead__photo { min-height: 560px; }
+  .lead__form-wrap { padding: var(--space-24) var(--space-16) var(--space-16) 0; }
+}
+
+@media (max-width: 767px) {
+  .lead__card { padding: var(--space-8); }
+  .lead__form-wrap { padding: var(--space-8) var(--space-8) var(--space-16); }
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Стайлгайд — ЖК «Амфітеатр» | Perspektyva</title>
+  <meta name="description" content="Дизайн-система лендингу ЖК «Амфітеатр»: токени, типографіка, відступи, компоненти та їхні стани. Джерело правди для імпорту в Figma.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+  <main class="sg">
+    <header class="sg-section">
+      <h1 class="text-h1">Стайлгайд ЖК «Амфітеатр»</h1>
+      <p class="text-body-lg sg__lead">Дизайн-система лендингу: токени, типографіка, шкала відступів, радіуси, тіні й усі компоненти в усіх станах. Стани :hover/:focus/:active/:disabled продубльовано статичними класами (напр. <span class="sg-token">.btn--hover</span>), щоб вони потрапили в експорт у Figma.</p>
+    </header>
+
+    <!-- ПАЛІТРА -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Палітра</h2>
+      <div class="sg-swatches">
+        <div class="swatch"><div class="swatch__chip swatch__chip--ink"></div><span class="text-sm swatch__name">--color-ink</span><span class="text-sm swatch__hex">#23262D</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--ink-raised"></div><span class="text-sm swatch__name">--color-ink-raised</span><span class="text-sm swatch__hex">#3A3E48</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--white"></div><span class="text-sm swatch__name">--color-white</span><span class="text-sm swatch__hex">#FFFFFF</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--text-muted"></div><span class="text-sm swatch__name">--color-text-muted</span><span class="text-sm swatch__hex">#5C616C</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--text-subtle"></div><span class="text-sm swatch__name">--color-text-subtle</span><span class="text-sm swatch__hex">#9DA2AC</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--border"></div><span class="text-sm swatch__name">--color-border</span><span class="text-sm swatch__hex">#DCDFE4</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--surface"></div><span class="text-sm swatch__name">--color-surface</span><span class="text-sm swatch__hex">#F3F4F6</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--brand"></div><span class="text-sm swatch__name">--color-brand</span><span class="text-sm swatch__hex">#FFC000</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--fact-bg"></div><span class="text-sm swatch__name">--color-fact-bg</span><span class="text-sm swatch__hex">#FFEFBC</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--fact-border"></div><span class="text-sm swatch__name">--color-fact-border</span><span class="text-sm swatch__hex">#FBE08A</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--success"></div><span class="text-sm swatch__name">--color-success</span><span class="text-sm swatch__hex">#12B76A</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--error"></div><span class="text-sm swatch__name">--color-error</span><span class="text-sm swatch__hex">#B42318</span></div>
+        <div class="swatch"><div class="swatch__chip swatch__chip--map-bg"></div><span class="text-sm swatch__name">--color-map-bg</span><span class="text-sm swatch__hex">#E9E6DF</span></div>
+      </div>
+    </section>
+
+    <!-- ТИПОГРАФІКА -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Типографіка</h2>
+      <div class="sg-type">
+        <div class="type-row"><span class="text-h1 type-row__sample">Заголовок H1</span><span class="text-sm sg-note">.text-h1 — 48 / 56 / 600 (моб. 32 / 40)</span></div>
+        <div class="type-row"><span class="text-h2 type-row__sample">Заголовок H2</span><span class="text-sm sg-note">.text-h2 — 40 / 48 / 600 (моб. 28 / 36)</span></div>
+        <div class="type-row"><span class="text-h3 type-row__sample">Заголовок H3</span><span class="text-sm sg-note">.text-h3 — 28 / 36 / 600 (моб. 24 / 32)</span></div>
+        <div class="type-row"><span class="text-stat type-row__sample">76–245,4 м²</span><span class="text-sm sg-note">.text-stat — 40 / 48 / 700 (моб. 24 / 32)</span></div>
+        <div class="type-row"><span class="text-lead type-row__sample">Lead / телефон</span><span class="text-sm sg-note">.text-lead — 20 / 28 / 600</span></div>
+        <div class="type-row"><span class="text-subhead type-row__sample">Підзаголовок / таб</span><span class="text-sm sg-note">.text-subhead — 18 / 28 / 600</span></div>
+        <div class="type-row"><span class="text-footer-link type-row__sample">Посилання у футері</span><span class="text-sm sg-note">.text-footer-link — 18 / 28 / 400</span></div>
+        <div class="type-row"><span class="text-body-lg type-row__sample">Основний великий абзац тексту</span><span class="text-sm sg-note">.text-body-lg — 18 / 28 / 400</span></div>
+        <div class="type-row"><span class="text-label type-row__sample">Підпис / навігація</span><span class="text-sm sg-note">.text-label — 16 / 24 / 600</span></div>
+        <div class="type-row"><span class="text-body type-row__sample">Основний абзац тексту</span><span class="text-sm sg-note">.text-body — 16 / 24 / 400</span></div>
+        <div class="type-row"><span class="text-sm type-row__sample">Дрібний текст / чипи</span><span class="text-sm sg-note">.text-sm — 14 / 20 / 400</span></div>
+        <div class="type-row"><span class="text-xs type-row__sample">Мікротекст</span><span class="text-sm sg-note">.text-xs — 12 / 16 / 400</span></div>
+      </div>
+    </section>
+
+    <!-- ВІДСТУПИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Шкала відступів</h2>
+      <div class="sg-space">
+        <div class="space-row"><span class="text-sm space-row__label">2 · micro</span><div class="space-row__bar sg-w-2"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">4</span><div class="space-row__bar sg-w-4"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">8</span><div class="space-row__bar sg-w-8"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">12</span><div class="space-row__bar sg-w-12"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">16</span><div class="space-row__bar sg-w-16"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">24</span><div class="space-row__bar sg-w-24"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">32</span><div class="space-row__bar sg-w-32"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">40</span><div class="space-row__bar sg-w-40"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">48</span><div class="space-row__bar sg-w-48"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">56</span><div class="space-row__bar sg-w-56"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">64</span><div class="space-row__bar sg-w-64"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">80</span><div class="space-row__bar sg-w-80"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">96</span><div class="space-row__bar sg-w-96"></div></div>
+        <div class="space-row"><span class="text-sm space-row__label">128</span><div class="space-row__bar sg-w-128"></div></div>
+      </div>
+    </section>
+
+    <!-- РАДІУСИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Радіуси</h2>
+      <div class="sg-tiles">
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--radius2"></div><span class="text-sm sg-tile__label">2 — хайрлайн</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--radius4"></div><span class="text-sm sg-tile__label">4</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--radius8"></div><span class="text-sm sg-tile__label">8 — інпути, чипи</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--radius12"></div><span class="text-sm sg-tile__label">12</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--radius16"></div><span class="text-sm sg-tile__label">16 — картки</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--radius24"></div><span class="text-sm sg-tile__label">24 — великі картки</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--pill"></div><span class="text-sm sg-tile__label">pill (9999)</span></div>
+      </div>
+    </section>
+
+    <!-- ТІНІ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Тіні</h2>
+      <div class="sg-tiles">
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--shadow sg-tile__box--radius16 sg-tile__box--card"></div><span class="text-sm sg-tile__label">--shadow-card</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--shadow sg-tile__box--radius16 sg-tile__box--badge"></div><span class="text-sm sg-tile__label">--shadow-badge</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--shadow sg-tile__box--radius16 sg-tile__box--pin"></div><span class="text-sm sg-tile__label">--shadow-pin</span></div>
+      </div>
+    </section>
+
+    <!-- ГРАНИЦІ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Границі</h2>
+      <div class="sg-tiles">
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--radius8 sg-tile__box--border1"></div><span class="text-sm sg-tile__label">1px</span></div>
+        <div class="sg-tile"><div class="sg-tile__box sg-tile__box--radius8 sg-tile__box--border2"></div><span class="text-sm sg-tile__label">2px</span></div>
+      </div>
+    </section>
+
+    <!-- ІКОНКИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Розміри іконок</h2>
+      <div class="sg-icons">
+        <div class="sg-icon"><svg class="icon icon--16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg><span class="text-sm">16</span></div>
+        <div class="sg-icon"><svg class="icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg><span class="text-sm">20</span></div>
+        <div class="sg-icon"><svg class="icon icon--24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg><span class="text-sm">24</span></div>
+        <div class="sg-icon"><svg class="icon icon--32" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg><span class="text-sm">32</span></div>
+        <div class="sg-icon"><svg class="icon icon--40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg><span class="text-sm">40</span></div>
+        <div class="sg-icon"><svg class="icon icon--48" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg><span class="text-sm">48</span></div>
+      </div>
+    </section>
+
+    <!-- КНОПКИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Кнопки · 56px desktop / 48px моб, текст 18px</h2>
+
+      <div class="sg-states">
+        <div class="sg-state"><span class="text-sm sg-state__label">primary — base</span><div class="sg-btn-box"><a class="btn btn--primary" href="#"><span class="btn__label">Отримати пропозицію</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">primary — hover</span><div class="sg-btn-box"><a class="btn btn--primary btn--hover" href="#"><span class="btn__label">Отримати пропозицію</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">primary — active</span><div class="sg-btn-box"><a class="btn btn--primary btn--active" href="#"><span class="btn__label">Отримати пропозицію</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">primary — focus</span><div class="sg-btn-box"><a class="btn btn--primary btn--focus" href="#"><span class="btn__label">Отримати пропозицію</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">disabled</span><div class="sg-btn-box"><button class="btn btn--disabled" type="button" disabled><span class="btn__label">Надіслати запит</span></button></div></div>
+      </div>
+
+      <div class="sg-states">
+        <div class="sg-state"><span class="text-sm sg-state__label">secondary — base</span><div class="sg-btn-box"><a class="btn btn--secondary" href="#"><span class="btn__label">Переглянути планування</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">secondary — hover</span><div class="sg-btn-box"><a class="btn btn--secondary btn--hover" href="#"><span class="btn__label">Переглянути планування</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">ghost — base</span><div class="sg-btn-box"><a class="btn btn--ghost" href="#"><span class="btn__label">Детальніше</span></a></div></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">ghost — hover</span><div class="sg-btn-box"><a class="btn btn--ghost btn--hover" href="#"><span class="btn__label">Детальніше</span></a></div></div>
+      </div>
+
+      <div class="sg-dark sg-states">
+        <div class="sg-state"><span class="text-sm sg-state__label">inverse — base</span><div class="sg-btn-box"><a class="btn btn--inverse" href="#"><span class="btn__label">Переглянути планування</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">inverse — hover</span><div class="sg-btn-box"><a class="btn btn--inverse btn--hover" href="#"><span class="btn__label">Переглянути планування</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div></div>
+      </div>
+    </section>
+
+    <!-- ІКОНО-КНОПКИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Іконо-кнопки (nav-стрілки) · 52px</h2>
+      <div class="sg-states">
+        <div class="sg-state"><span class="text-sm sg-state__label">base</span><button class="icon-btn" type="button" aria-label="Наступне"><svg class="gallery__arrow-icon" viewBox="0 0 32 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h30"></path><path d="m24 1 7 7-7 7"></path></svg></button></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">hover</span><button class="icon-btn icon-btn--hover" type="button" aria-label="Наступне"><svg class="gallery__arrow-icon" viewBox="0 0 32 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h30"></path><path d="m24 1 7 7-7 7"></path></svg></button></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">focus</span><button class="icon-btn icon-btn--focus" type="button" aria-label="Наступне"><svg class="gallery__arrow-icon" viewBox="0 0 32 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h30"></path><path d="m24 1 7 7-7 7"></path></svg></button></div>
+        <div class="sg-state"><span class="text-sm sg-state__label">disabled</span><button class="icon-btn icon-btn--disabled" type="button" aria-label="Попереднє" disabled><svg class="gallery__arrow-icon" viewBox="0 0 32 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M31 8H1"></path><path d="M8 1 1 8l7 7"></path></svg></button></div>
+      </div>
+    </section>
+
+    <!-- ПОЛЯ ФОРМИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Поля форми · 48px</h2>
+      <div class="sg-row">
+        <div class="sg-col">
+          <div class="field"><label class="text-label field__label" for="sg-in">Інпут — base</label><input class="input" id="sg-in" type="text" placeholder="Ім’я"></div>
+          <div class="field"><span class="text-label field__label">Інпут — focus</span><input class="input input--focus" type="text" value="Текст"></div>
+          <div class="field"><label class="text-label field__label" for="sg-sel">Select</label>
+            <div class="select"><select class="select__control input" id="sg-sel"><option>ЖК «Амфітеатр»</option></select><svg class="select__chevron icon icon--20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></div>
+          </div>
+        </div>
+        <div class="sg-col">
+          <div class="field"><label class="text-label field__label" for="sg-ta">Textarea</label><textarea class="textarea" id="sg-ta" rows="2" placeholder="Ваше запитання"></textarea></div>
+          <div class="field"><span class="text-label field__label">Степер</span>
+            <div class="stepper" role="group" aria-label="Кількість кімнат">
+              <button class="stepper__btn" type="button" aria-label="Менше"><svg class="icon icon--20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg></button>
+              <output class="text-label stepper__value">2</output>
+              <button class="stepper__btn" type="button" aria-label="Більше"><svg class="icon icon--20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></button>
+            </div>
+          </div>
+          <div class="checkbox-field"><label class="checkbox"><input class="checkbox__box" type="checkbox" checked><span class="text-sm checkbox__text">Погоджуюся на обробку персональних даних і <a href="#">Політику конфіденційності</a>.</span></label></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЧИПИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Чипи</h2>
+      <div class="chips">
+        <span class="chip"><span class="chip__dot chip__dot--success" aria-hidden="true"></span>Viessmann</span>
+        <span class="chip"><span class="chip__dot chip__dot--warn" aria-hidden="true"></span>Можливість підключення</span>
+        <span class="chip"><span class="chip__dot chip__dot--success" aria-hidden="true"></span>Охорона 24/7</span>
+      </div>
+    </section>
+
+    <!-- КАРТКИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Картки</h2>
+
+      <ul class="facts__grid">
+        <li class="fact-card"><span class="text-stat fact-card__value">3,3 м</span><span class="text-label fact-card__label">Висота стелі</span></li>
+        <li class="fact-card"><span class="text-stat fact-card__value">24/7</span><span class="text-label fact-card__label">Охорона</span></li>
+        <li class="fact-card"><span class="text-stat fact-card__value">191</span><span class="text-label fact-card__label">Паркомісце</span></li>
+        <li class="fact-card"><span class="text-stat fact-card__value">76 м²</span><span class="text-label fact-card__label">Площі квартир</span></li>
+      </ul>
+
+      <div class="pricing__grid">
+        <article class="price-card price-card--dark">
+          <div class="price-card__head"><div class="price-card__icon price-card__icon--brand" aria-hidden="true"><svg class="icon icon--24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg></div><span class="text-sm price-card__eyebrow price-card__eyebrow--light">Повна оплата</span></div>
+          <div class="price-card__body"><div class="price-card__text"><h3 class="text-h3 price-card__title price-card__title--light">100% — зі знижкою</h3><p class="text-body price-card__desc price-card__desc--light">Оплачуйте квартиру повністю та отримуйте вигіднішу ціну.</p></div><a class="btn btn--primary" href="#"><span class="btn__label">Отримати пропозицію</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div>
+        </article>
+        <article class="price-card">
+          <div class="price-card__head"><div class="price-card__icon" aria-hidden="true"><svg class="icon icon--24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg></div><span class="text-sm price-card__eyebrow">Розтермінування</span></div>
+          <div class="price-card__body"><div class="price-card__text"><h3 class="text-h3 price-card__title">Оплата частинами</h3><p class="text-body price-card__desc">Внесіть перший платіж, а решту сплачуйте за графіком.</p></div><a class="btn btn--primary" href="#"><span class="btn__label">Отримати пропозицію</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ПОПАПИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Попапи (презентація / оплата)</h2>
+
+      <div class="popup sg-popup-static">
+        <div class="popup__dialog">
+          <button class="popup__close" type="button" aria-label="Закрити"><svg class="icon icon--24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+          <div class="popup__media popup__media--plan"><img src="assets/plan-demo.jpg" alt="Планування — Квартира №5-б"></div>
+          <div class="popup__body">
+            <div class="popup__head"><h2 class="popup__title">Квартира №5-б в ЖК «Амфітеатр»: запис на презентацію</h2></div>
+            <form class="popup__form" novalidate>
+              <div class="field"><label class="text-label field__label" for="sgp-n1">Ваше ім’я</label><input class="input" id="sgp-n1" type="text"></div>
+              <div class="field"><label class="text-label field__label" for="sgp-p1">Номер телефону</label><input class="input" id="sgp-p1" type="tel" placeholder="+380"></div>
+              <div class="field"><label class="text-label field__label" for="sgp-c1">Як з вами зв’язатись?</label>
+                <div class="select"><select class="select__control input" id="sgp-c1"><option>Телефонний дзвінок</option><option>Telegram</option><option>Viber</option></select><svg class="select__chevron icon icon--20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div>
+              </div>
+              <button class="btn btn--primary" type="submit"><span class="btn__label">Залишити заявку</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup popup--offer sg-popup-static">
+        <div class="popup__dialog">
+          <button class="popup__close" type="button" aria-label="Закрити"><svg class="icon icon--24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+          <div class="popup__media popup__media--photo"><img src="assets/gallery-1.jpg" alt="ЖК «Амфітеатр»"></div>
+          <div class="popup__body">
+            <div class="popup__head"><h2 class="popup__title">Оплата частинами</h2><p class="text-body popup__sub">Залиште свої контакти, щоб дізнатися детальні умови оплати.</p></div>
+            <form class="popup__form" novalidate>
+              <div class="field"><label class="text-label field__label" for="sgp-n2">Ваше ім’я</label><input class="input" id="sgp-n2" type="text"></div>
+              <div class="field"><label class="text-label field__label" for="sgp-p2">Номер телефону</label><input class="input" id="sgp-p2" type="tel" placeholder="+380"></div>
+              <button class="btn btn--primary" type="submit"><span class="btn__label">Отримати пропозицію</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
