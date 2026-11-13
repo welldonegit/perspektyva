@@ -17,6 +17,7 @@
 
 .popup__dialog {
   position: relative;
+  outline: none;        /* фокус переводимо на діалог програмно — без видимого кільця */
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   width: 100%;

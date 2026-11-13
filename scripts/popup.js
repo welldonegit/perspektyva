@@ -63,6 +63,7 @@ export function initPopups() {
 
   const $ = (s) => modal.querySelector(s);
   const dialog = $('.popup__dialog');
+  dialog.setAttribute('tabindex', '-1');
   const media = $('.popup__media');
   const img = media.querySelector('img');
   const title = $('.popup__title');
@@ -103,7 +104,9 @@ export function initPopups() {
     modal.hidden = false;
     modal.classList.add('is-open');
     document.body.classList.add('popup-lock');
-    setTimeout(() => $('#popup-name').focus(), 0);
+    // Фокус не на поле (щоб не підсвічувалось і не спливала клавіатура на моб.),
+    // а на самому діалозі — щоб працювали Esc і пастка фокуса.
+    setTimeout(() => dialog.focus(), 0);
   }
 
   function close() {
