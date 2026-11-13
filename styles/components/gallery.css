@@ -57,6 +57,7 @@
 .gallery__track {
   display: flex;
   height: 100%;
+  transition: transform 250ms var(--ease);
 }
 
 .gallery__slide {

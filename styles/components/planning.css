@@ -45,12 +45,18 @@
 }
 .tab--selected .tab__name { color: var(--color-white); }
 
+.planning__note {
+  max-width: 640px;
+  color: var(--color-text-muted);
+}
+
 /* --- Карусель --- */
 .planning__viewport { overflow: hidden; }
 
 .planning__track {
   display: flex;
   gap: var(--space-16);
+  transition: transform 250ms var(--ease);
 }
 
 .plan-card {
@@ -84,6 +90,16 @@
   flex-direction: column;
   gap: var(--space-24);
   padding: 0 var(--space-8) var(--space-8);
+}
+
+.plan-card__badge {
+  align-self: flex-start;
+  padding: var(--space-4) var(--space-12);
+  border: var(--border-1) solid var(--color-border);
+  border-radius: var(--radius-8);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-lh);
 }
 
 .plan-card__title { color: var(--color-ink); }
