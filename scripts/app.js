@@ -1,5 +1,7 @@
 // app.js — інтерактив лендингу (vanilla, без залежностей):
-// галерея-слайдер, карусель планувань із табами, свайп. Плавний скрол — CSS.
+// галерея-слайдер, карусель планувань із табами, свайп, попапи. Плавний скрол — CSS.
+
+import { initPopups } from './popup.js';
 
 const pad2 = (v) => String(v).padStart(2, '0');
 
@@ -46,9 +48,9 @@ const PLAN_DATA = {
     { id: '9-б', area: '151 м²', floor: '7' },
     { id: '13', area: '245,4 м²', floor: '3' },
     { id: '16-а', area: '86,3 м²', floor: '4' },
-  ].map((c) => ({ ...c, complexShort: 'Амфітеатр', isTest: false })),
+  ].map((c) => ({ ...c, complexShort: 'Амфітеатр', complex: 'ЖК «Амфітеатр»', isTest: false })),
   letual: [
-    { id: '2', area: '135,8 м²', floor: '2', complexShort: 'Летуаль', isTest: true },
+    { id: '2', area: '135,8 м²', floor: '2', complexShort: 'Летуаль', complex: 'ЖК «Летуаль»', isTest: true },
   ],
 };
 
@@ -66,7 +68,7 @@ function planCardHTML(c) {
         <div class="spec"><dt class="text-sm spec__label">Площа</dt><dd class="text-subhead spec__value spec__value--nowrap">${c.area}</dd></div>
         <div class="spec"><dt class="text-sm spec__label">Поверх</dt><dd class="text-subhead spec__value">${c.floor}</dd></div>
       </dl>
-      <a class="btn btn--primary" href="#lead-form"><span class="btn__label">Дізнатися ціну квартири</span>${ARROW_SVG}</a>
+      <button type="button" class="btn btn--primary" data-popup="presentation" data-apartment="Квартира №${c.id}" data-complex="${c.complex}" data-plan="assets/plan-demo.jpg"><span class="btn__label">Дізнатися ціну квартири</span>${ARROW_SVG}</button>
     </div>
   </li>`;
 }
@@ -151,6 +153,7 @@ function addSwipe(el, onSwipe) {
 
 /* --------------------------------- Старт --------------------------------- */
 function init() {
+  initPopups();
   initGallery();
   initPlanning();
 }

@@ -77,6 +77,10 @@
 
 .lead-form__submit { grid-column: 1 / -1; }
 
+/* Повідомлення про помилку поля (спільне для форм і попапів). */
+.field__error { color: var(--color-error); }
+.field__error[hidden] { display: none; }
+
 .input {
   width: 100%;
   height: var(--control-h-input);

@@ -236,6 +236,44 @@
       </div>
     </section>
 
+    <!-- ПОПАПИ -->
+    <section class="sg-section">
+      <h2 class="text-h2 sg-section__title">Попапи (презентація / оплата)</h2>
+
+      <div class="popup sg-popup-static">
+        <div class="popup__dialog">
+          <button class="popup__close" type="button" aria-label="Закрити"><svg class="icon icon--24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+          <div class="popup__media popup__media--plan"><img src="assets/plan-demo.jpg" alt="Планування — Квартира №5-б"></div>
+          <div class="popup__body">
+            <div class="popup__head"><h2 class="popup__title">Квартира №5-б в ЖК «Амфітеатр»: запис на презентацію</h2></div>
+            <form class="popup__form" novalidate>
+              <div class="field"><label class="text-label field__label" for="sgp-n1">Ваше ім’я</label><input class="input" id="sgp-n1" type="text"></div>
+              <div class="field"><label class="text-label field__label" for="sgp-p1">Номер телефону</label><input class="input" id="sgp-p1" type="tel" placeholder="+380"></div>
+              <div class="field"><label class="text-label field__label" for="sgp-c1">Як з вами зв’язатись?</label>
+                <div class="select"><select class="select__control input" id="sgp-c1"><option>Телефонний дзвінок</option><option>Telegram</option><option>Viber</option></select><svg class="select__chevron icon icon--20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div>
+              </div>
+              <button class="btn btn--primary" type="submit"><span class="btn__label">Залишити заявку</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup popup--offer sg-popup-static">
+        <div class="popup__dialog">
+          <button class="popup__close" type="button" aria-label="Закрити"><svg class="icon icon--24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+          <div class="popup__media popup__media--photo"><img src="assets/gallery-1.jpg" alt="ЖК «Амфітеатр»"></div>
+          <div class="popup__body">
+            <div class="popup__head"><h2 class="popup__title">Оплата частинами</h2><p class="text-body popup__sub">Залиште свої контакти, щоб дізнатися детальні умови оплати.</p></div>
+            <form class="popup__form" novalidate>
+              <div class="field"><label class="text-label field__label" for="sgp-n2">Ваше ім’я</label><input class="input" id="sgp-n2" type="text"></div>
+              <div class="field"><label class="text-label field__label" for="sgp-p2">Номер телефону</label><input class="input" id="sgp-p2" type="tel" placeholder="+380"></div>
+              <button class="btn btn--primary" type="submit"><span class="btn__label">Отримати пропозицію</span><svg class="btn__icon icon icon--20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 </body>
 </html>
