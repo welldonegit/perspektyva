@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:relative;font-family:Inter, sans-serif;color:#FFFFFF">
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+<div style="box-sizing:border-box;max-width:1344px;height:96px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+<a href="#" aria-label="Perspektyva Group, головна" style="display:flex;color:#FFFFFF;text-decoration:none;border-radius:8px;outline:none" style-focus="box-shadow:0 0 0 2px #FDC100">
+<dc-import name="Logo" hint-size="300px,56px"></dc-import>
+</a>
+<div style="display:flex;align-items:center;gap:48px">
+<nav aria-label="Основна навігація" style="display:flex;align-items:center;gap:32px">
+<sc-for list="{{ nav }}" as="item" hint-placeholder-count="5">
+<a href="{{ item.href }}" style="color:#FFFFFF;font-weight:600;font-size:16px;line-height:24px;text-decoration:none;text-underline-offset:8px;white-space:nowrap;border-radius:4px;outline:none" style-hover="text-decoration:underline" style-focus="box-shadow:0 0 0 2px #FDC100">{{ item.label }}</a>
+</sc-for>
+</nav>
+<a href="tel:+380677774070" style="display:flex;align-items:center;gap:12px;color:#FFFFFF;font-weight:600;font-size:20px;line-height:28px;text-decoration:none;white-space:nowrap;border-radius:4px;outline:none" style-hover="text-decoration:underline" style-focus="box-shadow:0 0 0 2px #FDC100">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FDC100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+<span>+380 (67) 777-40-70</span>
+</a>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing:border-box;height:64px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+<a href="#" aria-label="Perspektyva Group, головна" style="display:flex;color:#FFFFFF;text-decoration:none">
+<dc-import name="Logo" compact="{{ true }}" hint-size="200px,40px"></dc-import>
+</a>
+<div style="display:flex;align-items:center;gap:8px">
+<a href="tel:+380677774070" aria-label="Зателефонувати +380 (67) 777-40-70" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;outline:none" style-focus="box-shadow:0 0 0 2px #FDC100">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FDC100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+</a>
+<button type="button" onClick="{{ toggleMenu }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menuOpen }}" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:8px;background:transparent;color:#FFFFFF;cursor:pointer;outline:none" style-focus="box-shadow:0 0 0 2px #FDC100">
+<sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+</sc-if>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+</sc-if>
+</button>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Основна навігація" style="position:absolute;top:64px;left:0;right:0;z-index:10;background:#22252D;border-top:1px solid #3A3E48;padding:8px 16px 24px;display:flex;flex-direction:column;box-shadow:0 8px 32px rgba(34,37,45,0.16)">
+<sc-for list="{{ nav }}" as="item" hint-placeholder-count="5">
+<a href="{{ item.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:center;height:52px;color:#FFFFFF;font-weight:600;font-size:18px;line-height:28px;text-decoration:none;border-bottom:1px solid #3A3E48">{{ item.label }}</a>
+</sc-for>
+<a href="tel:+380677774070" style="display:flex;align-items:center;gap:12px;height:52px;margin-top:8px;color:#FFFFFF;font-weight:600;font-size:20px;line-height:28px;text-decoration:none">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FDC100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+<span>+380 (67) 777-40-70</span>
+</a>
+</nav>
+</sc-if>
+</sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1440px&quot;,&quot;height&quot;:&quot;96px&quot;}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1440, open: false };
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const isMobile = this.state.w < 1200;
+    const open = isMobile && this.state.open;
+    return {
+      isMobile, isDesktop: !isMobile,
+      menuOpen: open, menuClosed: !open,
+      menuLabel: open ? 'Закрити меню' : 'Відкрити меню',
+      toggleMenu: () => this.setState(s => ({ open: !s.open })),
+      closeMenu: () => this.setState({ open: false }),
+      nav: [
+        { label: 'Про компанію', href: '#about' },
+        { label: 'Проєкти', href: '#projects' },
+        { label: 'Блог', href: '#blog' },
+        { label: 'FAQ', href: '#faq' },
+        { label: 'Контакти', href: '#contacts' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

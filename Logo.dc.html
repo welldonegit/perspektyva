@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;align-items:center;gap:16px;color:#FFFFFF;font-family:Inter, sans-serif">
+<svg width="49" height="56" viewBox="-4 -4 146 164" aria-hidden="true" style="display:block;flex:none"><polygon points="28,0 88,0 138,49 138,109 43,109 43,156 0,122 0,72 103,72 78,39 28,39" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round"></polygon></svg>
+<div style="font-weight:600;font-size:24px;line-height:24px;letter-spacing:0.01em;text-transform:uppercase;white-space:nowrap">Perspektyva<br>Group</div>
+</div>
+</sc-if>
+<sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;gap:12px;color:#FFFFFF;font-family:Inter, sans-serif">
+<svg width="35" height="40" viewBox="-4 -4 146 164" aria-hidden="true" style="display:block;flex:none"><polygon points="28,0 88,0 138,49 138,109 43,109 43,156 0,122 0,72 103,72 78,39 28,39" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round"></polygon></svg>
+<div style="font-weight:600;font-size:16px;line-height:16px;letter-spacing:0.01em;text-transform:uppercase;white-space:nowrap">Perspektyva<br>Group</div>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;320px&quot;,&quot;height&quot;:&quot;96px&quot;},&quot;compact&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const compact = !!this.props.compact;
+    return { compact, full: !compact };
+  }
+}
+</script>
+</body>
+</html>

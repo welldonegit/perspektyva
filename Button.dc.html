@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<sc-if value="{{ isPrimary }}" hint-placeholder-val="{{ true }}">
+<a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" onClick="{{ onClick }}" style="display:flex;align-items:center;justify-content:center;gap:12px;box-sizing:border-box;width:100%;height:52px;padding:0 24px;border:1px solid #FDC100;border-radius:999px;background:#FDC100;color:#22252D;font-family:Inter, sans-serif;font-weight:600;font-size:16px;line-height:24px;text-decoration:none;white-space:nowrap;cursor:pointer;outline:none;transition:box-shadow 200ms cubic-bezier(0.2,0,0,1)" style-hover="box-shadow:inset 0 0 0 64px rgba(34,37,45,0.08)" style-active="box-shadow:inset 0 0 0 64px rgba(34,37,45,0.16)" style-focus="box-shadow:0 0 0 2px #FFFFFF, 0 0 0 4px #22252D"><span>{{ label }}</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a>
+</sc-if>
+<sc-if value="{{ isSecondary }}" hint-placeholder-val="{{ false }}">
+<a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" onClick="{{ onClick }}" style="display:flex;align-items:center;justify-content:center;gap:12px;box-sizing:border-box;width:100%;height:52px;padding:0 24px;border:1px solid #22252D;border-radius:999px;background:transparent;color:#22252D;font-family:Inter, sans-serif;font-weight:600;font-size:16px;line-height:24px;text-decoration:none;white-space:nowrap;cursor:pointer;outline:none;transition:background-color 200ms cubic-bezier(0.2,0,0,1)" style-hover="background-color:#F3F4F6" style-active="background-color:#DCDFE4" style-focus="box-shadow:0 0 0 2px #FFFFFF, 0 0 0 4px #22252D"><span>{{ label }}</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a>
+</sc-if>
+<sc-if value="{{ isInverse }}" hint-placeholder-val="{{ false }}">
+<a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" onClick="{{ onClick }}" style="display:flex;align-items:center;justify-content:center;gap:12px;box-sizing:border-box;width:100%;height:52px;padding:0 24px;border:1px solid #FFFFFF;border-radius:999px;background:transparent;color:#FFFFFF;font-family:Inter, sans-serif;font-weight:600;font-size:16px;line-height:24px;text-decoration:none;white-space:nowrap;cursor:pointer;outline:none;transition:background-color 200ms cubic-bezier(0.2,0,0,1)" style-hover="background-color:rgba(255,255,255,0.12)" style-active="background-color:rgba(255,255,255,0.24)" style-focus="box-shadow:0 0 0 2px #22252D, 0 0 0 4px #FFFFFF"><span>{{ label }}</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></a>
+</sc-if>
+<sc-if value="{{ isGhost }}" hint-placeholder-val="{{ false }}">
+<a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" onClick="{{ onClick }}" style="display:flex;align-items:center;justify-content:center;gap:12px;box-sizing:border-box;width:100%;height:52px;padding:0 24px;border:1px solid transparent;border-radius:999px;background:transparent;color:#22252D;font-family:Inter, sans-serif;font-weight:600;font-size:16px;line-height:24px;text-decoration:underline;text-underline-offset:4px;white-space:nowrap;cursor:pointer;outline:none;transition:background-color 200ms cubic-bezier(0.2,0,0,1)" style-hover="background-color:#F3F4F6" style-active="background-color:#DCDFE4" style-focus="box-shadow:0 0 0 2px #FFFFFF, 0 0 0 4px #22252D">{{ label }}</a>
+</sc-if>
+<sc-if value="{{ isDisabled }}" hint-placeholder-val="{{ false }}">
+<button type="button" disabled="{{ true }}" style="display:flex;align-items:center;justify-content:center;gap:12px;box-sizing:border-box;width:100%;height:52px;padding:0 24px;border:1px solid #DCDFE4;border-radius:999px;background:#DCDFE4;color:#5C616C;font-family:Inter, sans-serif;font-weight:600;font-size:16px;line-height:24px;white-space:nowrap;cursor:not-allowed">{{ label }}</button>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;320px&quot;,&quot;height&quot;:&quot;80px&quot;},&quot;label&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Отримати планування та ціни&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;primary&quot;,&quot;secondary&quot;,&quot;inverse&quot;,&quot;ghost&quot;],&quot;default&quot;:&quot;primary&quot;,&quot;tsType&quot;:&quot;'primary'|'secondary'|'inverse'|'ghost'&quot;},&quot;disabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;onClick&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const v = this.props.variant ?? 'primary';
+    const off = !!this.props.disabled;
+    return {
+      label: this.props.label ?? 'Кнопка',
+      href: this.props.href ?? '#',
+      onClick: this.props.onClick,
+      target: this.props.target,
+      rel: this.props.target === '_blank' ? 'noopener noreferrer' : undefined,
+      isPrimary: !off && v === 'primary',
+      isSecondary: !off && v === 'secondary',
+      isInverse: !off && v === 'inverse',
+      isGhost: !off && v === 'ghost',
+      isDisabled: off
+    };
+  }
+}
+</script>
+</body>
+</html>

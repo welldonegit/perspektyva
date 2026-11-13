@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:flex;flex-direction:column;gap:20px;font-family:Inter, sans-serif;color:#22252D">
+<div style="display:flex;flex-direction:column;gap:8px;padding-right:48px">
+<h2 style="margin:0;font-weight:600;font-size:24px;line-height:32px;letter-spacing:-0.01em;text-wrap:balance">Залиште запит щодо обраної пропозиції</h2>
+<p style="margin:0;color:#5C616C;font-size:16px;line-height:24px;text-wrap:pretty">Вкажіть контактний номер та, за бажанням, своє запитання.</p>
+</div>
+<sc-if value="{{ hasApartment }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:2px;padding:12px 16px;border-radius:8px;background:#F3F4F6">
+<span style="font-weight:600;font-size:16px;line-height:24px">{{ apartment }}</span>
+<span style="color:#5C616C;font-size:16px;line-height:24px">{{ complexLine }}</span>
+</div>
+</sc-if>
+<sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+<form noValidate="{{ true }}" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:16px;margin:0">
+<div style="display:flex;flex-direction:column;gap:6px">
+<label for="lf-name" style="display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:16px;line-height:24px"><span>Ваше ім’я</span></label>
+<input id="lf-name" type="text" autoComplete="name" value="{{ name }}" onChange="{{ onName }}" style="box-sizing:border-box;width:100%;height:48px;padding:0 16px;border:1px solid #DCDFE4;border-radius:8px;background:#FFFFFF;color:#22252D;font-family:Inter, sans-serif;font-size:16px;line-height:24px;outline:none;transition:border-color 200ms cubic-bezier(0.2,0,0,1)" style-hover="border-color:#5C616C" style-focus="border-color:#22252D;box-shadow:0 0 0 2px #FFFFFF, 0 0 0 4px #22252D"></input>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<label for="lf-phone" style="font-weight:600;font-size:16px;line-height:24px">Номер телефону</label>
+<input id="lf-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+380" required="{{ true }}" aria-invalid="{{ phoneInvalid }}" aria-describedby="lf-phone-err" value="{{ phone }}" onChange="{{ onPhone }}" style="box-sizing:border-box;width:100%;height:48px;padding:0 16px;border:1px solid {{ phoneBorder }};border-radius:8px;background:#FFFFFF;color:#22252D;font-family:Inter, sans-serif;font-size:16px;line-height:24px;outline:none;transition:border-color 200ms cubic-bezier(0.2,0,0,1)" style-focus="border-color:#22252D;box-shadow:0 0 0 2px #FFFFFF, 0 0 0 4px #22252D"></input>
+<sc-if value="{{ phoneError }}" hint-placeholder-val="{{ false }}">
+<span id="lf-phone-err" style="color:#B42318;font-size:14px;line-height:20px">{{ phoneError }}</span>
+</sc-if>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<label for="lf-q" style="display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:16px;line-height:24px"><span>Ваше запитання</span></label>
+<textarea id="lf-q" rows="2" value="{{ question }}" onChange="{{ onQuestion }}" style="box-sizing:border-box;width:100%;min-height:64px;padding:10px 16px;border:1px solid #DCDFE4;border-radius:8px;background:#FFFFFF;color:#22252D;font-family:Inter, sans-serif;font-size:16px;line-height:24px;resize:vertical;outline:none;transition:border-color 200ms cubic-bezier(0.2,0,0,1)" style-hover="border-color:#5C616C" style-focus="border-color:#22252D;box-shadow:0 0 0 2px #FFFFFF, 0 0 0 4px #22252D"></textarea>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+<input type="checkbox" checked="{{ consent }}" onChange="{{ onConsent }}" aria-invalid="{{ consentInvalid }}" style="flex:none;width:20px;height:20px;margin:0;accent-color:#22252D;cursor:pointer"></input>
+<span style="color:#5C616C;font-size:14px;line-height:20px;text-wrap:pretty">Погоджуюся на обробку моїх персональних даних для опрацювання звернення та ознайомлений / ознайомлена з <a href="#" style="color:#22252D;text-decoration:underline;text-underline-offset:4px">Політикою конфіденційності</a>.</span>
+</label>
+<sc-if value="{{ consentError }}" hint-placeholder-val="{{ false }}">
+<span style="padding-left:32px;color:#B42318;font-size:14px;line-height:20px">{{ consentError }}</span>
+</sc-if>
+</div>
+<sc-if value="{{ isError }}" hint-placeholder-val="{{ false }}">
+<p role="alert" style="margin:0;padding:12px 16px;border:1px solid #B42318;border-radius:8px;color:#B42318;font-size:16px;line-height:24px">Не вдалося надіслати запит. Спробуйте ще раз.</p>
+</sc-if>
+<sc-if value="{{ isIdle }}" hint-placeholder-val="{{ true }}">
+<button type="submit" style="display:flex;align-items:center;justify-content:center;gap:12px;box-sizing:border-box;width:100%;height:48px;padding:0 24px;border:1px solid #FDC100;border-radius:999px;background:#FDC100;color:#22252D;font-family:Inter, sans-serif;font-weight:600;font-size:16px;line-height:24px;cursor:pointer;outline:none;transition:box-shadow 200ms cubic-bezier(0.2,0,0,1)" style-hover="box-shadow:inset 0 0 0 64px rgba(34,37,45,0.08)" style-active="box-shadow:inset 0 0 0 64px rgba(34,37,45,0.16)" style-focus="box-shadow:0 0 0 2px #FFFFFF, 0 0 0 4px #22252D"><span>Надіслати запит</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M3.5 10h13"></path><path d="m11 4.5 5.5 5.5-5.5 5.5"></path></svg></button>
+</sc-if>
+<sc-if value="{{ isSending }}" hint-placeholder-val="{{ false }}">
+<button type="button" disabled="{{ true }}" style="display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:100%;height:48px;padding:0 24px;border:1px solid #DCDFE4;border-radius:999px;background:#DCDFE4;color:#5C616C;font-family:Inter, sans-serif;font-weight:600;font-size:16px;line-height:24px;cursor:progress">Надсилаємо…</button>
+</sc-if>
+</form>
+</sc-if>
+<sc-if value="{{ isSuccess }}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display:flex;align-items:center;gap:16px;padding:24px;border-radius:8px;background:#F3F4F6">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22252D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M5 12l5 5L20 7"></path></svg>
+<span style="font-weight:600;font-size:18px;line-height:28px">Дякуємо! Ваш запит надіслано.</span>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;640px&quot;,&quot;height&quot;:&quot;840px&quot;},&quot;apartment&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Квартира №16-а&quot;,&quot;tsType&quot;:&quot;string | null&quot;},&quot;complex&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;ЖК «Амфітеатр»&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;simulateError&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { name: '', phone: '', question: '', consent: false, status: 'idle', phoneError: '', consentError: '' };
+  componentWillUnmount() { clearTimeout(this.t); }
+  submit = e => {
+    e.preventDefault();
+    if (this.state.status === 'sending') return;
+    const digits = this.state.phone.replace(/\D/g, '');
+    const phoneError = digits.length < 10 ? 'Вкажіть номер телефону' : '';
+    const consentError = this.state.consent ? '' : 'Підтвердіть згоду, щоб надіслати запит';
+    this.setState({ phoneError, consentError });
+    if (phoneError || consentError) return;
+    this.setState({ status: 'sending' });
+    this.t = setTimeout(() => this.setState({ status: this.props.simulateError ? 'error' : 'success' }), 800);
+  };
+  renderVals() {
+    const s = this.state;
+    const apt = this.props.apartment;
+    return {
+      apartment: apt, hasApartment: !!apt,
+      complexLine: this.props.complex ?? '',
+      name: s.name, phone: s.phone, question: s.question, consent: s.consent,
+      onName: e => this.setState({ name: e.target.value }),
+      onPhone: e => this.setState({ phone: e.target.value, phoneError: '' }),
+      onQuestion: e => this.setState({ question: e.target.value }),
+      onConsent: e => this.setState({ consent: e.target.checked, consentError: '' }),
+      phoneError: s.phoneError, phoneInvalid: s.phoneError ? 'true' : 'false',
+      phoneBorder: s.phoneError ? '#B42318' : '#DCDFE4',
+      consentError: s.consentError, consentInvalid: s.consentError ? 'true' : 'false',
+      showForm: s.status !== 'success',
+      isIdle: s.status === 'idle' || s.status === 'error',
+      isSending: s.status === 'sending',
+      isError: s.status === 'error',
+      isSuccess: s.status === 'success',
+      submit: this.submit
+    };
+  }
+}
+</script>
+</body>
+</html>
