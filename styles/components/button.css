@@ -1,5 +1,6 @@
 /* button.css — кнопка-pill (.btn) у чотирьох варіантах + іконо-кнопка-стрілка
-   (.icon-btn). Висота кнопки 52px, іконо-кнопки 52×52. Стани продубльовано
+   (.icon-btn). Висота CTA 56px (desktop) / 48px (моб.), текст 18px — зведено під
+   сайт-приймач; .btn--md — інлайнові 48px; іконо-кнопки 52×52. Стани продубльовано
    статичними класами (--hover/--active/--focus/--disabled) для експорту у Figma. */
 
 .btn {
@@ -12,8 +13,8 @@
   padding-inline: var(--space-24);
   border: var(--border-1) solid transparent;
   border-radius: var(--radius-pill);
-  font-size: var(--text-label-size);
-  line-height: var(--text-label-lh);
+  font-size: var(--text-subhead-size);
+  line-height: var(--text-subhead-lh);
   font-weight: var(--weight-semibold);
   text-decoration: none;
   white-space: nowrap;
@@ -27,6 +28,11 @@
 
 /* Середній розмір (48) — інлайнові кнопки форм і карток вартості. */
 .btn--md { height: var(--control-h-input); }
+
+/* На мобільному CTA-кнопки — 48 (як на сайті-приймачі). */
+@media (max-width: 767px) {
+  .btn { height: var(--control-h-input); }
+}
 
 /* --- primary (жовтий) --- */
 .btn--primary {
@@ -98,8 +104,8 @@
   align-items: center;
   justify-content: center;
   flex: none;
-  width: var(--control-h-button);
-  height: var(--control-h-button);
+  width: var(--control-h-nav);
+  height: var(--control-h-nav);
   padding: 0;
   border: var(--border-1) solid var(--color-ink);
   border-radius: var(--radius-pill);
