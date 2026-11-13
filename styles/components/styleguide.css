@@ -1,1 +1,159 @@
-/* styleguide.css */
+/* styleguide.css — оформлення сторінки стайлгайду (хром сторінки).
+   Самі компоненти використовують свої класи; тут — лише сітки й підписи. */
+
+.sg {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: var(--space-64) var(--space-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-80);
+}
+
+.sg__lead { color: var(--color-text-muted); max-width: 640px; }
+
+.sg-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+.sg-section__title {
+  padding-bottom: var(--space-16);
+  border-bottom: var(--border-1) solid var(--color-border);
+  color: var(--color-ink);
+}
+
+/* Підпис-токен біля зразка */
+.sg-note {
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.sg-token {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color: var(--color-ink);
+}
+
+/* --- Палітра --- */
+.sg-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-16);
+}
+.swatch { display: flex; flex-direction: column; gap: var(--space-8); }
+.swatch__chip {
+  height: 80px;
+  border-radius: var(--radius-12);
+  border: var(--border-1) solid var(--color-border);
+}
+.swatch__name { color: var(--color-ink); font-weight: var(--weight-semibold); }
+.swatch__hex { color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.swatch__chip--ink { background: var(--color-ink); }
+.swatch__chip--ink-raised { background: var(--color-ink-raised); }
+.swatch__chip--white { background: var(--color-white); }
+.swatch__chip--text-muted { background: var(--color-text-muted); }
+.swatch__chip--text-subtle { background: var(--color-text-subtle); }
+.swatch__chip--border { background: var(--color-border); }
+.swatch__chip--surface { background: var(--color-surface); }
+.swatch__chip--brand { background: var(--color-brand); }
+.swatch__chip--fact-bg { background: var(--color-fact-bg); }
+.swatch__chip--fact-border { background: var(--color-fact-border); }
+.swatch__chip--success { background: var(--color-success); }
+.swatch__chip--error { background: var(--color-error); }
+.swatch__chip--map-bg { background: var(--color-map-bg); }
+
+/* --- Типографіка --- */
+.sg-type { display: flex; flex-direction: column; gap: var(--space-24); }
+.type-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-bottom: var(--space-24);
+  border-bottom: var(--border-1) solid var(--color-border);
+}
+.type-row__sample { color: var(--color-ink); }
+
+/* --- Відступи --- */
+.sg-space { display: flex; flex-direction: column; gap: var(--space-12); }
+.space-row { display: flex; align-items: center; gap: var(--space-16); }
+.space-row__label {
+  width: 96px;
+  flex: none;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+.space-row__bar {
+  height: var(--space-16);
+  background: var(--color-brand);
+  border-radius: var(--radius-2);
+}
+.sg-w-2 { width: var(--space-2); }
+.sg-w-4 { width: var(--space-4); }
+.sg-w-8 { width: var(--space-8); }
+.sg-w-12 { width: var(--space-12); }
+.sg-w-16 { width: var(--space-16); }
+.sg-w-24 { width: var(--space-24); }
+.sg-w-32 { width: var(--space-32); }
+.sg-w-40 { width: var(--space-40); }
+.sg-w-48 { width: var(--space-48); }
+.sg-w-56 { width: var(--space-56); }
+.sg-w-64 { width: var(--space-64); }
+.sg-w-80 { width: var(--space-80); }
+.sg-w-96 { width: var(--space-96); }
+.sg-w-128 { width: var(--space-128); }
+
+/* --- Радіуси / тіні / границі --- */
+.sg-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-24);
+}
+.sg-tile { display: flex; flex-direction: column; gap: var(--space-8); }
+.sg-tile__box {
+  height: 96px;
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-border);
+}
+.sg-tile__box--shadow { border: 0; background: var(--color-white); }
+.sg-tile__box--radius2 { border-radius: var(--radius-2); }
+.sg-tile__box--radius4 { border-radius: var(--radius-4); }
+.sg-tile__box--radius8 { border-radius: var(--radius-8); }
+.sg-tile__box--radius12 { border-radius: var(--radius-12); }
+.sg-tile__box--radius16 { border-radius: var(--radius-16); }
+.sg-tile__box--radius24 { border-radius: var(--radius-24); }
+.sg-tile__box--pill { border-radius: var(--radius-pill); }
+.sg-tile__box--card { box-shadow: var(--shadow-card); }
+.sg-tile__box--badge { box-shadow: var(--shadow-badge); }
+.sg-tile__box--pin { box-shadow: var(--shadow-pin); }
+.sg-tile__box--border1 { border-width: var(--border-1); }
+.sg-tile__box--border2 { border-width: var(--border-2); }
+.sg-tile__label { color: var(--color-ink); }
+
+/* --- Іконки --- */
+.sg-icons { display: flex; align-items: flex-end; flex-wrap: wrap; gap: var(--space-32); }
+.sg-icon { display: flex; flex-direction: column; align-items: center; gap: var(--space-8); color: var(--color-ink); }
+
+/* --- Набори станів компонентів --- */
+.sg-states {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+}
+.sg-state {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 220px;
+}
+.sg-state__label { color: var(--color-text-muted); }
+/* Темна підкладка для inverse-кнопки й на-темному елементів */
+.sg-dark {
+  padding: var(--space-24);
+  border-radius: var(--radius-16);
+  background: var(--color-ink);
+}
+
+.sg-row { display: flex; flex-wrap: wrap; gap: var(--space-24); align-items: flex-start; }
+.sg-col { display: flex; flex-direction: column; gap: var(--space-16); min-width: 280px; flex: 1; }
+
+/* Фіксована ширина для демо-кнопок, щоб не розтягувалися на всю ширину */
+.sg-btn-box { width: 280px; max-width: 100%; }
