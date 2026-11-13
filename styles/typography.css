@@ -1,0 +1,100 @@
+/* ============================================================================
+   typography.css — переіспользувані класи тексту. У розмітці ставимо клас,
+   а не перевизначаємо розмір усередині компонента.
+   Міжрядковий заданий у px на 4px-сітці → жодних дробових обчислених значень.
+   Fluid-типографіки немає: різні розміри на різних ширинах — медіазапитами.
+   ============================================================================ */
+
+.text-h1 {
+  font-size: var(--text-h1-size);
+  line-height: var(--text-h1-lh);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.text-h2 {
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-lh);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+}
+
+.text-h3 {
+  font-size: var(--text-h3-size);
+  line-height: var(--text-h3-lh);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+}
+
+.text-stat {
+  font-size: var(--text-stat-size);
+  line-height: var(--text-stat-lh);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.text-body-lg {
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-lh);
+  font-weight: var(--weight-regular);
+}
+
+.text-body {
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  font-weight: var(--weight-regular);
+}
+
+.text-sm {
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-lh);
+  font-weight: var(--weight-regular);
+}
+
+.text-xs {
+  font-size: var(--text-xs-size);
+  line-height: var(--text-xs-lh);
+  font-weight: var(--weight-regular);
+}
+
+.text-label {
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-lh);
+  font-weight: var(--weight-semibold);
+}
+
+.text-lead {
+  font-size: var(--text-lead-size);
+  line-height: var(--text-lead-lh);
+  font-weight: var(--weight-semibold);
+}
+
+.text-subhead {
+  font-size: var(--text-subhead-size);
+  line-height: var(--text-subhead-lh);
+  font-weight: var(--weight-semibold);
+}
+
+/* Мобільні розміри заголовків: у кожному брейкпоінті значення зі шкали. */
+@media (max-width: 767px) {
+  .text-h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .text-h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .text-h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .text-stat {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}

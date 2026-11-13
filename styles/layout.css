@@ -1,0 +1,58 @@
+/* ============================================================================
+   layout.css — спільні примітиви розкладки. Відступи між елементами — через
+   gap у flex/grid (щоб плагін зібрав Auto Layout), а не margin сусідів.
+   ============================================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-32);
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-inline: var(--space-16);
+  }
+}
+
+/* Світла секція за замовчуванням; темні секції перевизначають фон у себе. */
+.section {
+  background: var(--color-white);
+}
+
+/* Вертикальний ритм секцій (96 / 56 з брейкпоінтом). */
+.section--pad {
+  padding-block: var(--space-96);
+}
+
+.section--pad-top {
+  padding-top: var(--space-96);
+}
+
+.section--pad-top {
+  padding-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .section--pad {
+    padding-block: var(--space-56);
+  }
+
+  .section--pad-top {
+    padding-top: var(--space-56);
+  }
+}
+
+/* Доступне приховування підписів для скрінрідерів. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,29 @@
+/* ============================================================================
+   main.css — єдина точка входу. Імпортує токени й базу, далі компоненти.
+   Підключається у <head> обох сторінок: index.html і styleguide.html.
+   ============================================================================ */
+
+/* База */
+@import "./tokens.css";
+@import "./reset.css";
+@import "./typography.css";
+@import "./layout.css";
+
+/* Компоненти (один компонент — один файл) */
+@import "./components/logo.css";
+@import "./components/button.css";
+@import "./components/header.css";
+@import "./components/breadcrumb.css";
+@import "./components/hero.css";
+@import "./components/facts.css";
+@import "./components/advantages.css";
+@import "./components/gallery.css";
+@import "./components/planning.css";
+@import "./components/technology.css";
+@import "./components/location.css";
+@import "./components/pricing.css";
+@import "./components/lead-form.css";
+@import "./components/modal.css";
+@import "./components/footer.css";
+@import "./components/chip.css";
+@import "./components/styleguide.css";
