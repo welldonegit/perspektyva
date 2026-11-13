@@ -1,1 +1,89 @@
-/* advantages.css */
+/* advantages.css — «що вирізняє комплекс»: 4 картки, остання — фонове фото.
+   Велика відстань іконка→текст (96) та текст-група (gap 16) рознесені у дві
+   вкладені рамки — кожна з одним gap, щоб у Figma зібрався Auto Layout. */
+
+.advantages__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.advantages__title { color: var(--color-ink); }
+
+.advantages__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-16);
+}
+
+.advantage-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-96);
+  padding: var(--space-32);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+}
+
+.advantage-card__icon { color: var(--color-ink); }
+.advantage-card__icon--light { color: var(--color-white); }
+
+.advantage-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-width: 480px;
+}
+
+.advantage-card__title { color: var(--color-ink); }
+.advantage-card__title--light { color: var(--color-white); }
+
+.advantage-card__desc { color: var(--color-text-muted); }
+.advantage-card__desc--light { color: var(--color-white); }
+
+/* Картка з фоновим фото */
+.advantage-card--photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ink);
+}
+.advantage-card__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.advantage-card__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-ink-rgb) / 0.64) 0%,
+    rgba(var(--color-ink-rgb) / 0.32) 24%,
+    rgba(var(--color-ink-rgb) / 0.8) 48%,
+    rgba(var(--color-ink-rgb) / 0.92) 100%
+  );
+}
+.advantage-card--photo .advantage-card__icon,
+.advantage-card--photo .advantage-card__text { position: relative; }
+
+@media (min-width: 768px) {
+  .advantages__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-24);
+  }
+}
+
+@media (min-width: 1200px) {
+  .advantages__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .advantages__inner { gap: var(--space-32); }
+  .advantage-card {
+    gap: var(--space-48);
+    padding: var(--space-24);
+  }
+}

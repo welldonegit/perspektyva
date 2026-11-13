@@ -1,1 +1,153 @@
-/* footer.css */
+/* footer.css — підвал: бренд + контакти, навігація + правові, кнопка «нагору».
+   Вирівнювання meta праворуч на desktop (≥1200), ліворуч нижче. */
+
+.site-footer {
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+  padding-block: var(--space-64) var(--space-32);
+}
+
+.site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-48) var(--space-24);
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+.site-footer__logo {
+  display: flex;
+  align-self: flex-start;
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--radius-8);
+  outline: none;
+}
+.site-footer__logo:focus-visible { box-shadow: var(--focus-ring-brand); }
+
+.site-footer__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-16) var(--space-24);
+}
+.site-footer__phone {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  color: var(--color-white);
+  font-size: var(--text-lead-size);
+  line-height: var(--text-lead-lh);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: var(--radius-4);
+  outline: none;
+}
+.site-footer__phone:hover { text-decoration: underline; }
+.site-footer__phone:focus-visible { box-shadow: var(--focus-ring-brand); }
+.site-footer__phone-icon { color: var(--color-brand); }
+
+.site-footer__socials {
+  display: flex;
+  gap: var(--space-8);
+}
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-h-icon);
+  height: var(--control-h-icon);
+  border-radius: var(--radius-8);
+  outline: none;
+  transition: background-color var(--duration) var(--ease);
+}
+.social:hover { background-color: var(--color-ink-raised); }
+.social:focus-visible { box-shadow: var(--focus-ring-brand); }
+.social__icon { color: var(--color-brand); }
+
+.site-footer__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+}
+.footer-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--space-16) var(--space-32);
+}
+.footer-nav__link {
+  color: var(--color-white);
+  text-decoration: none;
+  text-underline-offset: var(--space-8);
+  white-space: nowrap;
+  border-radius: var(--radius-4);
+  outline: none;
+}
+.footer-nav__link:hover { text-decoration: underline; }
+.footer-nav__link:focus-visible { box-shadow: var(--focus-ring-brand); }
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-8) var(--space-12);
+}
+.site-footer__legal-link {
+  color: var(--color-text-subtle);
+  text-decoration: none;
+  text-underline-offset: var(--space-4);
+  border-radius: var(--radius-4);
+  outline: none;
+}
+.site-footer__legal-link:hover {
+  text-decoration: underline;
+  color: var(--color-white);
+}
+.site-footer__legal-link:focus-visible { box-shadow: var(--focus-ring-brand); }
+.site-footer__legal-sep {
+  width: var(--border-1);
+  height: var(--space-16);
+  background: var(--color-ink-raised);
+}
+
+.site-footer__bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+.totop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-h-button);
+  height: var(--control-h-button);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-8);
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: background-color var(--duration) var(--ease);
+}
+.totop:hover { background-color: var(--color-ink-raised); }
+.totop:focus-visible { box-shadow: var(--focus-ring-brand); }
+.site-footer__totop-icon { color: var(--color-brand); }
+
+@media (min-width: 1200px) {
+  .site-footer__meta { align-items: flex-end; }
+  .footer-nav__list { justify-content: flex-end; }
+  .site-footer__legal { justify-content: flex-end; }
+}

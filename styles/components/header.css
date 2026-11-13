@@ -1,1 +1,106 @@
-/* header.css */
+/* header.css — шапка поверх hero. Desktop: лого + меню + телефон.
+   Мобільний (<1200): компактне лого + іконка-телефон + бургер. */
+
+.site-header {
+  position: relative;
+  z-index: 3;
+  color: var(--color-white);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-32);
+  height: 96px;
+}
+
+.site-header__logo {
+  display: flex;
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--radius-8);
+  outline: none;
+}
+.site-header__logo:focus-visible { box-shadow: var(--focus-ring-brand); }
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-48);
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-32);
+}
+
+.site-nav__link {
+  color: var(--color-white);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-lh);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  text-underline-offset: var(--space-8);
+  white-space: nowrap;
+  border-radius: var(--radius-4);
+  outline: none;
+}
+.site-nav__link:hover { text-decoration: underline; }
+.site-nav__link:focus-visible { box-shadow: var(--focus-ring-brand); }
+
+.site-header__phone {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  color: var(--color-white);
+  font-size: var(--text-lead-size);
+  line-height: var(--text-lead-lh);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: var(--radius-4);
+  outline: none;
+}
+.site-header__phone:hover { text-decoration: underline; }
+.site-header__phone:focus-visible { box-shadow: var(--focus-ring-brand); }
+.site-header__phone-icon { color: var(--color-brand); }
+
+.site-header__burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-h-icon);
+  height: var(--control-h-icon);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-8);
+  background: transparent;
+  color: var(--color-white);
+  cursor: pointer;
+  outline: none;
+}
+.site-header__burger:focus-visible { box-shadow: var(--focus-ring-brand); }
+
+/* --- Мобільна шапка (<1200) --- */
+@media (max-width: 1199px) {
+  .site-header__inner {
+    height: 64px;
+    gap: var(--space-16);
+    padding-inline: var(--space-16);
+  }
+  .site-nav { display: none; }
+  .site-header__actions { gap: var(--space-8); }
+
+  .site-header__phone {
+    width: var(--control-h-icon);
+    height: var(--control-h-icon);
+    justify-content: center;
+    gap: 0;
+    border-radius: var(--radius-8);
+  }
+  .site-header__phone span { display: none; }
+
+  .site-header__burger { display: flex; }
+}
