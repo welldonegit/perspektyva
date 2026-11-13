@@ -53,16 +53,3 @@
 .icon--32 { width: var(--icon-32); height: var(--icon-32); }
 .icon--40 { width: var(--icon-40); height: var(--icon-40); }
 .icon--48 { width: var(--icon-48); height: var(--icon-48); }
-
-/* Доступне приховування підписів для скрінрідерів. */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
