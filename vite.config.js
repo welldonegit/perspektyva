@@ -1,7 +1,6 @@
-import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 
-// Multi-page: index.html (лендинг) + styleguide.html (дизайн-система для Figma).
+// Односторінковий лендинг: точка входу — index.html.
 export default defineConfig({
   root: '.',
   server: {
@@ -17,11 +16,5 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        index: resolve(__dirname, 'index.html'),
-        styleguide: resolve(__dirname, 'styleguide.html'),
-      },
-    },
   },
 })
