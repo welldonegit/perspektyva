@@ -15,21 +15,12 @@ npm run build     # прод-збірка у dist/
 npm run preview   # перегляд зібраного
 ```
 
-Дві сторінки (multi-page Vite):
-
-| Файл | Призначення |
-|------|-------------|
-| `index.html` | власне лендинг |
-| `styleguide.html` | дизайн-система: токени, типографіка, компоненти та їхні стани |
-
 ## Структура
 
 ```
 index.html              точка входу — лендинг
-styleguide.html         точка входу — стайлгайд
-vite.config.js          multi-page конфіг
+vite.config.js          конфіг збірки
 assets/                 зображення (hero, галерея, план, карта)
-design-source/          оригінали Claude Design (.dc.html + support.js) — довідка
 styles/
   main.css              єдина точка входу (@import усього)
   tokens.css            ВСІ числа як CSS-змінні (єдине джерело значень)
@@ -39,7 +30,7 @@ styles/
   components/
     logo, button, header, breadcrumb, hero, facts, advantages, gallery,
     planning, technology, location, pricing, lead-form, modal, footer,
-    chip, styleguide            — один компонент = один файл
+    chip                        — один компонент = один файл
 ```
 
 Правило: у компонентних стилях — **лише `var(--token)`**, жодних магічних чисел і
@@ -64,8 +55,6 @@ styles/
 **Кольори** зняті під сайт-приймач `perspektyva.com.ua`: ink `#23262D`,
 бренд-жовтий `#FFC000`.
 
-Повний перелік значень поза шкалами (і чому) — у `OUT-OF-SCALE.md`.
-
 ## Брейкпоінти
 
 | Діапазон | Що |
@@ -78,21 +67,17 @@ styles/
 
 ## Імпорт у Figma (html.to.design)
 
-1. `npm run dev` і відкрити `http://localhost:5173/` (або `/styleguide.html`).
+1. `npm run dev` і відкрити `http://localhost:5173/`.
 2. У плагіні html.to.design вказати URL сторінки (або вставити HTML).
 3. Імпортувати. DOM стане деревом фреймів, обчислені стилі — спекою.
 4. Повторювані блоки (fact-card, advantage-card, plan-card, price-card, chip,
    btn) мають однакову структуру й класи — з них зручно зібрати компоненти.
 
-Спочатку імпортуйте `styleguide.html`, щоб завести у файл токени/типографіку/
-компоненти, потім `index.html` як складену сторінку.
-
 Сторінка **робоча** (vanilla-JS, `scripts/app.js`): слайдери галереї й планувань,
 таби, свайп, плавний скрол, жива Google-карта, попапи (`scripts/popup.js` +
 `styles/components/popup.css`). Попапи відкриваються з `data-popup="presentation"`
 (картки квартир) і `data-popup="offer"` (картки оплати); хук відправки форми —
-`window.AmfPopups.onSubmit = async (payload) => { ... }`. **Що не переноситься в експорт** —
-див. `OUT-OF-SCALE.md`, розділ «Втрати при експорті»: JS у Figma не виконується
+`window.AmfPopups.onSubmit = async (payload) => { ... }`. У Figma JS не виконується
 (каруселі → перший кадр), iframe карти → пустий фрейм, pulse-анімація й blur не
-йдуть. Для чистої Figma-спеки перед імпортом замініть iframe карти на статичне
+йдуть — для чистої Figma-спеки перед імпортом замініть iframe карти на статичне
 зображення карти.
