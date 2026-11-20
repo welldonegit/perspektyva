@@ -1,0 +1,94 @@
+/* price-list.css — «Ціни на квартири, комерцію та паркінги»: 6 карток-тарифів
+   (тип → ціна «від» → площа / ціна за м²). Сітка 1 / 2 / 3 колонки.
+   Жовта крапка біля назви — бренд-акцент; усі значення зі шкали токенів. */
+
+.price-list__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.price-list__title { color: var(--color-ink); }
+
+.price-list__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-16);
+}
+
+.price-list__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  padding: var(--space-32);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+}
+
+.price-list__name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  color: var(--color-ink);
+}
+.price-list__name::before {
+  content: "";
+  flex: none;
+  width: var(--space-8);
+  height: var(--space-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand);
+}
+
+.price-list__price {
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+.price-list__price-from {
+  font-weight: var(--weight-regular);
+  color: var(--color-text-muted);
+}
+
+.price-list__specs {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.price-list__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-16);
+  padding-top: var(--space-16);
+  border-top: var(--border-1) solid var(--color-border);
+}
+.price-list__row dt { color: var(--color-text-muted); }
+.price-list__row dd {
+  margin: 0;
+  text-align: right;
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 768px) {
+  .price-list__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-24);
+  }
+}
+
+@media (min-width: 1200px) {
+  .price-list__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .price-list__inner { gap: var(--space-32); }
+  .price-list__card {
+    gap: var(--space-24);
+    padding: var(--space-24);
+  }
+}
